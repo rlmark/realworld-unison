@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      # Your test database
+      POSTGRES_DB: realworld
+    ports:
+      # We'll expose this at 5433 in case you have a postgres already running
+      - 5433:5432
+
+  # A nice-to-have admin ui at localhost:8080
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  pgdata:
