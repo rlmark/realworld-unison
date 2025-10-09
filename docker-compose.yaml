@@ -11,6 +11,9 @@ services:
     ports:
       # We'll expose this at 5433 in case you have a postgres already running
       - 5433:5432
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
 
   # A nice-to-have admin ui at localhost:8080
   adminer:

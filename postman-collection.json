@@ -290,7 +290,7 @@
                   "    tests['Response contains \"articlesCount\" property'] = responseJSON.hasOwnProperty('articlesCount');",
                   "    tests['articlesCount is an integer'] = Number.isInteger(responseJSON.articlesCount);",
                   "",
-                  "    if(responseJSON.articles.length){",
+                  "    if(Array.isArray(responseJSON.articles) && responseJSON.articles.length){",
                   "        var article = responseJSON.articles[0];",
                   "",
                   "        tests['Article has \"title\" property'] = article.hasOwnProperty('title');",
