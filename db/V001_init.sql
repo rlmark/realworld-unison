@@ -18,7 +18,7 @@ CREATE TABLE followers
 CREATE TABLE articles
 (
     article_id  BIGSERIAL PRIMARY KEY,
-    slug        TEXT    NOT NULL,
+    slug        TEXT    NOT NULL UNIQUE,
     title       TEXT    NOT NULL,
     description TEXT    NOT NULL,
     body        TEXT    NOT NULL,
