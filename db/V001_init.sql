@@ -47,7 +47,7 @@ CREATE TABLE favorites_articles
 
 CREATE TABLE comments_articles
 (
-    comment_id BIGINT PRIMARY KEY,
+    comment_id BIGSERIAL PRIMARY KEY,
     article_id BIGINT NOT NULL REFERENCES articles (article_id) ON UPDATE CASCADE,
     created_at TIMESTAMP WITH TIME ZONE NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE NOT NULL,
