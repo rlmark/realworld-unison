@@ -4,6 +4,7 @@
 .unison/*
 .unisonHistory
 *.u
+/transcripts
 
 # dependencies
 /node_modules
