@@ -37,13 +37,27 @@ To get started,
 4. At the root of the repository, enter `ucm` in another terminal to start the codebase manager. 
   - Create a `scratch.u` file in your repo if you intend to edit Unison code for the project. 
   - Files with the `.u` extension will not be checked into version control
-5. Download the application code in the `ucm` with the following: 
+5. Run docker compose. 
+
+If running locally, from the root of the project enter: 
+
+```
+docker compose up
+```
+
+If you are running in BYOC with docker: 
+
+```
+docker compose -f pg-docker-compose.yaml -f docker-compose.yml --env-file secrets-example.env --env-file .env up
+```
+
+6. Download the application code in the `ucm` with the following: 
        
 ``` ucm
 scratch/main> clone @rlmark/realworld
 ```
 
-6. Run the service on `localhost:8080` with the following in the `ucm` console:
+7. Run the service on `localhost:8080` with the following in the `ucm` console:
 
 ``` ucm 
 @rlmark/realworld/main> run deploy.serveLocalCloud
@@ -52,6 +66,11 @@ scratch/main> clone @rlmark/realworld
 To teardown the postgres db and remove the tables and data run: 
 
 ```
-docker compose down --v 
+docker compose -f pg-docker-compose.yaml down -v
 ```
 
+To teardown the postgres db and all of the associated cloud-BYOC volumes: 
+
+```
+docker compose -f pg-docker-compose.yaml -f docker-compose.yml --env-file secrets-example.env --env-file .env down -v
+```

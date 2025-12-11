@@ -6,7 +6,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      # Your test database
       POSTGRES_DB: realworld
     ports:
       # We'll expose this at 5433 in case you have a postgres already running
